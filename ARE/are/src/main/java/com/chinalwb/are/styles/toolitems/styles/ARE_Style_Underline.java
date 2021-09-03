@@ -6,6 +6,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.chinalwb.are.AREditText;
+import com.chinalwb.are.R;
 import com.chinalwb.are.spans.AreItalicSpan;
 import com.chinalwb.are.spans.AreUnderlineSpan;
 import com.chinalwb.are.styles.ARE_ABS_Style;
@@ -54,6 +55,11 @@ public class ARE_Style_Underline extends ARE_ABS_Style<AreUnderlineSpan> {
 				mUnderlineChecked = !mUnderlineChecked;
 				if (null != mCheckUpdater) {
 					mCheckUpdater.onCheckStatusUpdate(mUnderlineChecked);
+				}
+				if(mUnderlineChecked){
+					imageView.setImageResource(R.drawable.toolbar_checked_bg);
+				}else{
+					imageView.setImageResource(R.drawable.underline);
 				}
 				if (null != mEditText) {
 					applyStyle(mEditText.getEditableText(), mEditText.getSelectionStart(), mEditText.getSelectionEnd());

@@ -5,6 +5,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.chinalwb.are.AREditText;
+import com.chinalwb.are.R;
 import com.chinalwb.are.spans.AreSuperscriptSpan;
 import com.chinalwb.are.styles.ARE_ABS_Style;
 import com.chinalwb.are.styles.ARE_Helper;
@@ -55,6 +56,11 @@ public class ARE_Style_Superscript extends ARE_ABS_Style<AreSuperscriptSpan> {
                 mSuperscriptChecked = !mSuperscriptChecked;
                 if (mCheckUpdater != null) {
                     mCheckUpdater.onCheckStatusUpdate(mSuperscriptChecked);
+                }
+                if(mSuperscriptChecked){
+                    imageView.setImageResource(R.drawable.toolbar_checked_bg);
+                }else{
+                    imageView.setImageResource(R.drawable.superscript);
                 }
                 if (null != mEditText) {
                     applyStyle(mEditText.getEditableText(),

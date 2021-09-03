@@ -4,11 +4,10 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.chinalwb.are.AREditText
 import com.chinalwb.are.demo.toolitems.ARE_ToolItem_MyBold
+import com.chinalwb.are.styles.ARE_Strikethrough
 import com.chinalwb.are.styles.toolbar.ARE_Toolbar
 import com.chinalwb.are.styles.toolbar.ARE_ToolbarDefault
-import com.chinalwb.are.styles.toolitems.ARE_ToolItem_Bold
-import com.chinalwb.are.styles.toolitems.ARE_ToolItem_Italic
-import com.chinalwb.are.styles.toolitems.ARE_ToolItem_Underline
+import com.chinalwb.are.styles.toolitems.*
 
 class CustomClass: AppCompatActivity() {
     private lateinit var richEditText: AREditText
@@ -32,10 +31,16 @@ class CustomClass: AppCompatActivity() {
         val boldOption = ARE_ToolItem_Bold()
         val italicOption = ARE_ToolItem_Italic()
         val underlineOption = ARE_ToolItem_Underline()
+        val strikethrough = ARE_ToolItem_Strikethrough()
+        val superScriptOption = ARE_ToolItem_Superscript()
+        val subScriptOption = ARE_ToolItem_Subscript()
 
         toolbar.addToolbarItem(boldOption)
         toolbar.addToolbarItem(italicOption)
         toolbar.addToolbarItem(underlineOption)
+        toolbar.addToolbarItem(strikethrough)
+        toolbar.addToolbarItem(superScriptOption)
+        toolbar.addToolbarItem(subScriptOption)
     }
 
     private fun setToolBarToEditText(){

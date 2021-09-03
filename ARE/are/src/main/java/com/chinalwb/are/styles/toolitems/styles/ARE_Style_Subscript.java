@@ -5,6 +5,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.chinalwb.are.AREditText;
+import com.chinalwb.are.R;
 import com.chinalwb.are.spans.AreSubscriptSpan;
 import com.chinalwb.are.styles.ARE_ABS_Style;
 import com.chinalwb.are.styles.ARE_Helper;
@@ -51,6 +52,11 @@ public class ARE_Style_Subscript extends ARE_ABS_Style<AreSubscriptSpan> {
             public void onClick(View v) {
                 mSubscriptChecked = !mSubscriptChecked;
                 ARE_Helper.updateCheckStatus(ARE_Style_Subscript.this, mSubscriptChecked);
+                if(mSubscriptChecked){
+                    imageView.setImageResource(R.drawable.toolbar_checked_bg);
+                }else{
+                    imageView.setImageResource(R.drawable.subscript);
+                }
                 if (null != mEditText) {
                     applyStyle(mEditText.getEditableText(),
                             mEditText.getSelectionStart(),

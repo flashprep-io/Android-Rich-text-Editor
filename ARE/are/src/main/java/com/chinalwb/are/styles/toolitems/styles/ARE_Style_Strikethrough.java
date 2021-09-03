@@ -7,6 +7,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.chinalwb.are.AREditText;
+import com.chinalwb.are.R;
 import com.chinalwb.are.spans.AreUnderlineSpan;
 import com.chinalwb.are.styles.ARE_ABS_Style;
 import com.chinalwb.are.styles.toolitems.IARE_ToolItem_Updater;
@@ -54,6 +55,11 @@ public class ARE_Style_Strikethrough extends ARE_ABS_Style<StrikethroughSpan> {
 				mStrikethroughChecked = !mStrikethroughChecked;
 				if (null != mCheckUpdater) {
 					mCheckUpdater.onCheckStatusUpdate(mStrikethroughChecked);
+				}
+				if(mStrikethroughChecked){
+					imageView.setImageResource(R.drawable.toolbar_checked_bg);
+				}else{
+					imageView.setImageResource(R.drawable.strikethrough);
 				}
 				if (null != mEditText) {
 					applyStyle(mEditText.getEditableText(), mEditText.getSelectionStart(), mEditText.getSelectionEnd());
