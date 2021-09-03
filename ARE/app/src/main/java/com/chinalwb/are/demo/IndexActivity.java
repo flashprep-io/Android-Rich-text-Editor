@@ -25,34 +25,40 @@ public class IndexActivity extends AppCompatActivity {
 
     private void initViews() {
         Button defaultToolbarButton = this.findViewById(R.id.defaultToolbar);
-        openPage(defaultToolbarButton, ARE_DefaultToolbarActivity.class);
+        //openPage(defaultToolbarButton, ARE_DefaultToolbarActivity.class);
 
         Button fullBottomButton = this.findViewById(R.id.fullBottomButton);
-        openPage(fullBottomButton, ARE_FullBottomActivity.class);
+        //openPage(fullBottomButton, ARE_FullBottomActivity.class);
 
         Button fullTopButton = this.findViewById(R.id.fullTopButton);
-        openPage(fullTopButton, ARE_FullTopActivity.class);
+        //openPage(fullTopButton, ARE_FullTopActivity.class);
 
         Button minBottomButton = this.findViewById(R.id.minBottomButton);
-        openPage(minBottomButton, ARE_MinBottomActivity.class);
+        //openPage(minBottomButton, ARE_MinBottomActivity.class);
 
         Button minTopButton = this.findViewById(R.id.minTopButton);
-        openPage(minTopButton, ARE_MinTopActivity.class);
+        //openPage(minTopButton, ARE_MinTopActivity.class);
 
         Button minHideButton = this.findViewById(R.id.minHideButton);
-        openPage(minHideButton, ARE_MinHideActivity.class);
+        //openPage(minHideButton, ARE_MinHideActivity.class);
 
         Button multipleInstanceButton = this.findViewById(R.id.multiInstanceButton);
-        openPage(multipleInstanceButton, ARE_MultiInstanceActivity.class);
+        //openPage(multipleInstanceButton, ARE_MultiInstanceActivity.class);
+
+        Button customActivityButton = this.findViewById(R.id.startCustomActivity);
+        openPage(customActivityButton, CustomClass.class);
     }
 
     private void openPage(Button button, final Class activity) {
-        button.setOnClickListener(new View.OnClickListener() {
+/*        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(IndexActivity.this, activity);
                 startActivity(intent);
             }
-        });
+        });*/
+
+        Intent intent = new Intent(IndexActivity.this, activity);
+        startActivity(intent);
     }
 }

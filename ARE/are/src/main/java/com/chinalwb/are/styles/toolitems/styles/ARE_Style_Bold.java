@@ -6,6 +6,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.chinalwb.are.AREditText;
+import com.chinalwb.are.R;
 import com.chinalwb.are.Util;
 import com.chinalwb.are.spans.AreBoldSpan;
 import com.chinalwb.are.styles.ARE_ABS_Style;
@@ -55,6 +56,11 @@ public class ARE_Style_Bold extends ARE_ABS_Style<AreBoldSpan> {
                 mBoldChecked = !mBoldChecked;
                 if (mCheckUpdater != null) {
                     mCheckUpdater.onCheckStatusUpdate(mBoldChecked);
+                }
+                if(mBoldChecked){
+                    imageView.setImageResource(R.drawable.toolbar_checked_bg);
+                }else{
+                    imageView.setImageResource(R.drawable.bold);
                 }
                 if (null != mEditText) {
                     applyStyle(mEditText.getEditableText(),

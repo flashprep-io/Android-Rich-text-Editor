@@ -20,51 +20,63 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAllCaps="false"
-        android:text="AREditText + Default Toolbar"/>
+        android:text="AREditText + Default Toolbar"
+        android:visibility="gone"/>
 
     <Button
         android:id="@+id/fullBottomButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAllCaps="false"
-        android:text="AREditor Full Bottom"/>
+        android:text="AREditor Full Bottom"
+        android:visibility="gone"/>
 
     <Button
         android:id="@+id/fullTopButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAllCaps="false"
-        android:text="AREditor Full Top"/>
+        android:text="AREditor Full Top"
+        android:visibility="gone"/>
 
     <Button
         android:id="@+id/minBottomButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAllCaps="false"
-        android:text="AREditor Min Bottom"/>
+        android:text="AREditor Min Bottom"
+        android:visibility="gone"/>
 
     <Button
         android:id="@+id/minTopButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAllCaps="false"
-        android:text="AREditor Min Top"/>
+        android:text="AREditor Min Top"
+        android:visibility="gone"/>
 
     <Button
         android:id="@+id/minHideButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAllCaps="false"
-        android:text="AREditor Min Hide"/>
+        android:text="AREditor Min Hide"
+        android:visibility="gone"/>
 
     <Button
         android:id="@+id/multiInstanceButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAllCaps="false"
-        android:text="Multiple AREditor in One Page"/>
+        android:text="Multiple AREditor in One Page"
+        android:visibility="gone"/>
 
 
-
+    <Button
+        android:id="@+id/startCustomActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="Start"/>
 
 </LinearLayout>

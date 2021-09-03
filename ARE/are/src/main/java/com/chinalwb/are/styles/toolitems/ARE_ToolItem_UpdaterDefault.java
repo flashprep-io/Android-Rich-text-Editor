@@ -27,6 +27,6 @@ public class ARE_ToolItem_UpdaterDefault implements IARE_ToolItem_Updater {
         areStyle.setChecked(checked);
         View view = mToolItem.getView(null);
         int color = checked ? mCheckedColor : mUncheckedColor;
-        view.setBackgroundColor(color);
+        //view.setBackgroundColor(color);
     }
 }

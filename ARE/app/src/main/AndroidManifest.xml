@@ -54,6 +54,11 @@
             android:name=".ARE_DefaultToolbarActivity"
             android:label="@string/title_activity_are__default_toolbar"
             android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".CustomClass"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>
