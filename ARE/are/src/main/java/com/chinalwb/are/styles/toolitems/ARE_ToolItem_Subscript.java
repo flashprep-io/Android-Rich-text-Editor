@@ -21,6 +21,7 @@ import com.chinalwb.are.styles.toolitems.styles.ARE_Style_Superscript;
  */
 
 public class ARE_ToolItem_Subscript extends ARE_ToolItem_Abstract {
+    private ImageView view = null;
 
     @Override
     public IARE_ToolItem_Updater getToolItemUpdater() {
@@ -54,6 +55,7 @@ public class ARE_ToolItem_Subscript extends ARE_ToolItem_Abstract {
             imageView.setImageResource(R.drawable.subscript);
             imageView.bringToFront();
             mToolItemView = imageView;
+            view  = imageView;
         }
 
         return mToolItemView;
@@ -82,6 +84,12 @@ public class ARE_ToolItem_Subscript extends ARE_ToolItem_Abstract {
                     subscriptExists = true;
                 }
             }
+        }
+
+        if(subscriptExists){
+            view.setImageResource(R.drawable.toolbar_checked_bg);
+        }else{
+            view.setImageResource(R.drawable.subscript);
         }
 
         mToolItemUpdater.onCheckStatusUpdate(subscriptExists);

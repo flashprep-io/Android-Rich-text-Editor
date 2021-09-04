@@ -23,6 +23,7 @@ import com.chinalwb.are.styles.toolitems.styles.ARE_Style_Underline;
  */
 
 public class ARE_ToolItem_Underline extends ARE_ToolItem_Abstract {
+    private ImageView view = null;
 
     @Override
     public IARE_ToolItem_Updater getToolItemUpdater() {
@@ -56,6 +57,7 @@ public class ARE_ToolItem_Underline extends ARE_ToolItem_Abstract {
             imageView.setImageResource(R.drawable.underline);
             imageView.bringToFront();
             mToolItemView = imageView;
+            view = imageView;
         }
 
         return mToolItemView;
@@ -90,6 +92,12 @@ public class ARE_ToolItem_Underline extends ARE_ToolItem_Abstract {
 				}
 			}
 		}
+
+        if(underlinedExists){
+            view.setImageResource(R.drawable.toolbar_checked_bg);
+        }else{
+            view.setImageResource(R.drawable.underline);
+        }
 
         mToolItemUpdater.onCheckStatusUpdate(underlinedExists);
     }
