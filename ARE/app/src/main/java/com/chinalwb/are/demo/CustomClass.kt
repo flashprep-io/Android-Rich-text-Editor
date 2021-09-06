@@ -1,10 +1,16 @@
 package com.chinalwb.are.demo
 
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableStringBuilder
+import android.text.style.ImageSpan
 import android.view.View
+import android.widget.Button
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.chinalwb.are.AREditText
 import com.chinalwb.are.demo.toolitems.ARE_ToolItem_MyBold
+import com.chinalwb.are.styles.ARE_Bold
 import com.chinalwb.are.styles.ARE_Strikethrough
 import com.chinalwb.are.styles.toolbar.ARE_Toolbar
 import com.chinalwb.are.styles.toolbar.ARE_ToolbarDefault
@@ -16,6 +22,11 @@ class CustomClass: AppCompatActivity() {
     private lateinit var richEditText2: AREditText
     private lateinit var toolbar2: ARE_ToolbarDefault
 
+    private lateinit var customBold: ARE_Bold
+    private lateinit var customBoldButton: ImageView
+    private lateinit var customImageButton: ImageView
+    private lateinit var getHtmlButton: Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_custom_class)
@@ -25,6 +36,8 @@ class CustomClass: AppCompatActivity() {
         initToolBar2()
         setToolBarToEditText()
         setFocusChangeListener()
+        initCustomToolBar()
+        bindCustomToolBar()
     }
 
     private fun initViews(){
@@ -94,5 +107,41 @@ class CustomClass: AppCompatActivity() {
                 }
             }
         })
+    }
+
+    private fun initCustomToolBar(){
+        customBoldButton = findViewById(R.id.customBoldButton)
+        customImageButton = findViewById(R.id.customImageButton)
+        getHtmlButton = findViewById(R.id.getHtmlButton)
+        customBold = ARE_Bold(customBoldButton)
+        customBold.setEditText(richEditText)
+    }
+
+    private fun bindCustomToolBar(){
+        customImageButton.setOnClickListener {
+            insertImageToEditText()
+        }
+
+        getHtmlButton.setOnClickListener {
+            getHtmlData()
+        }
+    }
+
+    private fun insertImageToEditText(){
+        val startSelection = richEditText.selectionStart
+        val endSelection = richEditText.selectionEnd
+
+        val imageSpan = ImageSpan(this, R.drawable.cartoon_man_in_love)
+        val builder = SpannableStringBuilder()
+        builder.append(richEditText.text)
+
+        val imageId = "[img=1]"
+        builder.replace(richEditText.selectionStart, richEditText.selectionEnd, imageId)
+        builder.setSpan(imageSpan, startSelection, startSelection+imageId.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+        richEditText.text = builder
+    }
+
+    private fun getHtmlData(){
+        println("-----${richEditText.html}")
     }
 }
