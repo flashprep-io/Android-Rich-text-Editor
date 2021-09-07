@@ -1,13 +1,17 @@
 package com.chinalwb.are.demo
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.text.Editable
 import android.text.Spannable
 import android.text.SpannableStringBuilder
 import android.text.style.ImageSpan
 import android.view.View
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.chinalwb.are.AREditText
 import com.chinalwb.are.demo.toolitems.ARE_ToolItem_MyBold
 import com.chinalwb.are.styles.ARE_Bold
@@ -15,6 +19,7 @@ import com.chinalwb.are.styles.ARE_Strikethrough
 import com.chinalwb.are.styles.toolbar.ARE_Toolbar
 import com.chinalwb.are.styles.toolbar.ARE_ToolbarDefault
 import com.chinalwb.are.styles.toolitems.*
+import kotlinx.android.synthetic.main.activity_index.*
 
 class CustomClass: AppCompatActivity() {
     private lateinit var richEditText: AREditText
@@ -127,17 +132,21 @@ class CustomClass: AppCompatActivity() {
         }
     }
 
-    private fun insertImageToEditText(){
+    private fun insertImageToEditText() {
         val startSelection = richEditText.selectionStart
         val endSelection = richEditText.selectionEnd
 
-        val imageSpan = ImageSpan(this, R.drawable.cartoon_man_in_love)
+        val imageDrawable: Drawable = ContextCompat.getDrawable(this, R.drawable.cartoon_man_in_love)!!
+        imageDrawable.setBounds(0, 0, imageDrawable.intrinsicWidth, imageDrawable.intrinsicHeight)
+        val imageSpan =
+            ImageSpan(imageDrawable, "https://flashprep-media-aps1.s3.ap-south-1.amazonaws.com/release/000-create-default/01.jpg")
+
         val builder = SpannableStringBuilder()
         builder.append(richEditText.text)
 
         val imageId = "[img=1]"
         builder.replace(richEditText.selectionStart, richEditText.selectionEnd, imageId)
-        builder.setSpan(imageSpan, startSelection, startSelection+imageId.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+        builder.setSpan(imageSpan, startSelection, startSelection + imageId.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
         richEditText.text = builder
     }
 
