@@ -6,7 +6,7 @@
     <com.chinalwb.are.AREditText
         android:id="@+id/richEditText"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="400dp"
         android:layout_below="@id/toolbar"
         android:layout_marginTop="10dp"
         android:gravity="top|left"
@@ -29,11 +29,12 @@
         android:id="@+id/richEditText2"
         android:layout_width="match_parent"
         android:layout_height="250dp"
+        android:layout_below="@id/richEditText"
+        android:layout_marginTop="10dp"
         android:gravity="top|left"
         android:hint="Your EditText goes here"
         android:textSize="16sp"
-        android:layout_below="@id/richEditText"
-        android:layout_marginTop="10dp"/>
+        android:visibility="gone"/>
 
 
 
