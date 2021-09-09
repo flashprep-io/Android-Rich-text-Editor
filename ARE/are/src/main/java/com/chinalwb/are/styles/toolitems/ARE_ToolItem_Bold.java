@@ -56,12 +56,14 @@ public class ARE_ToolItem_Bold extends ARE_ToolItem_Abstract {
         }
         if (mToolItemView == null) {
             ImageView imageView = new ImageView(context);
-            int size = Util.getPixelByDp(context, 40);
+            int height = Util.getPixelByDp(context, 40);
             int width = Util.getPixelByDp(context, 57);
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(width, size);
+            int padding = Util.getPixelByDp(context, 10);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(width, height);
             imageView.setLayoutParams(params);
             imageView.setImageResource(inActiveImage);
             imageView.bringToFront();
+            imageView.setPadding(padding, padding, padding, padding);
             mToolItemView = imageView;
             view = imageView;
         }

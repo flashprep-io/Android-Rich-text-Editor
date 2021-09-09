@@ -53,8 +53,8 @@ class CustomClass: AppCompatActivity() {
     }
 
     private fun initToolBar1(){
-        val boldOption = ARE_ToolItem_Bold(R.drawable.my_bold, R.drawable.bold)
-        val italicOption = ARE_ToolItem_Italic()
+        val boldOption = ARE_ToolItem_Bold(R.drawable.bold_active, R.drawable.bold_in_active)
+        val italicOption = ARE_ToolItem_Italic(R.drawable.italic_active, R.drawable.italic_in_active)
         val underlineOption = ARE_ToolItem_Underline()
         val strikethrough = ARE_ToolItem_Strikethrough()
         val superScriptOption = ARE_ToolItem_Superscript()
@@ -72,7 +72,7 @@ class CustomClass: AppCompatActivity() {
 
     private fun initToolBar2(){
         val boldOption = ARE_ToolItem_MyBold(R.drawable.bold, R.drawable.bold)
-        val italicOption = ARE_ToolItem_Italic()
+        val italicOption = ARE_ToolItem_Italic(R.drawable.italic, R.drawable.italic)
         val underlineOption = ARE_ToolItem_Underline()
         val strikethrough = ARE_ToolItem_Strikethrough()
         val superScriptOption = ARE_ToolItem_Superscript()
