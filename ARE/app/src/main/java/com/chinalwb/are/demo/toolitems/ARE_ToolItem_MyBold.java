@@ -11,6 +11,12 @@ import com.chinalwb.are.styles.IARE_Style;
 import com.chinalwb.are.styles.toolitems.ARE_ToolItem_Bold;
 
 public class ARE_ToolItem_MyBold extends ARE_ToolItem_Bold {
+    private int inActiveImage = -1;
+
+    public ARE_ToolItem_MyBold(int activeImage, int inActiveImage) {
+        super(activeImage, inActiveImage);
+        this.inActiveImage = inActiveImage;
+    }
 
     @Override
     public View getView(Context context) {
@@ -22,7 +28,7 @@ public class ARE_ToolItem_MyBold extends ARE_ToolItem_Bold {
             int size = Util.getPixelByDp(context, 40);
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(size, size);
             imageView.setLayoutParams(params);
-            imageView.setImageResource(R.drawable.my_bold);
+            imageView.setImageResource(inActiveImage);
             imageView.bringToFront();
             mToolItemView = imageView;
         }

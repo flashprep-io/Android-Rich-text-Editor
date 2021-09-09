@@ -22,6 +22,13 @@ import com.chinalwb.are.styles.toolitems.styles.ARE_Style_Bold;
 
 public class ARE_ToolItem_Bold extends ARE_ToolItem_Abstract {
     private ImageView view = null;
+    private int activeImage = -1;
+    private int inActiveImage = -1;
+
+    public ARE_ToolItem_Bold(int activeImage, int inActiveImage) {
+        this.activeImage = activeImage;
+        this.inActiveImage = inActiveImage;
+    }
 
     @Override
     public IARE_ToolItem_Updater getToolItemUpdater() {
@@ -37,7 +44,7 @@ public class ARE_ToolItem_Bold extends ARE_ToolItem_Abstract {
         if (mStyle == null) {
             AREditText editText = this.getEditText();
             IARE_ToolItem_Updater toolItemUpdater = getToolItemUpdater();
-            mStyle = new ARE_Style_Bold(editText, (ImageView) mToolItemView, toolItemUpdater);
+            mStyle = new ARE_Style_Bold(editText, (ImageView) mToolItemView, toolItemUpdater, activeImage, inActiveImage);
         }
         return mStyle;
     }
@@ -50,9 +57,10 @@ public class ARE_ToolItem_Bold extends ARE_ToolItem_Abstract {
         if (mToolItemView == null) {
             ImageView imageView = new ImageView(context);
             int size = Util.getPixelByDp(context, 40);
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(size, size);
+            int width = Util.getPixelByDp(context, 57);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(width, size);
             imageView.setLayoutParams(params);
-            imageView.setImageResource(R.drawable.bold);
+            imageView.setImageResource(inActiveImage);
             imageView.bringToFront();
             mToolItemView = imageView;
             view = imageView;
@@ -102,9 +110,9 @@ public class ARE_ToolItem_Bold extends ARE_ToolItem_Abstract {
 		}
 
         if(boldExists){
-            view.setImageResource(R.drawable.toolbar_checked_bg);
+            view.setImageResource(activeImage);
         }else{
-            view.setImageResource(R.drawable.bold);
+            view.setImageResource(inActiveImage);
         }
 
         mToolItemUpdater.onCheckStatusUpdate(boldExists);

@@ -53,7 +53,7 @@ class CustomClass: AppCompatActivity() {
     }
 
     private fun initToolBar1(){
-        val boldOption = ARE_ToolItem_Bold()
+        val boldOption = ARE_ToolItem_Bold(R.drawable.my_bold, R.drawable.bold)
         val italicOption = ARE_ToolItem_Italic()
         val underlineOption = ARE_ToolItem_Underline()
         val strikethrough = ARE_ToolItem_Strikethrough()
@@ -71,7 +71,7 @@ class CustomClass: AppCompatActivity() {
     }
 
     private fun initToolBar2(){
-        val boldOption = ARE_ToolItem_Bold()
+        val boldOption = ARE_ToolItem_MyBold(R.drawable.bold, R.drawable.bold)
         val italicOption = ARE_ToolItem_Italic()
         val underlineOption = ARE_ToolItem_Underline()
         val strikethrough = ARE_ToolItem_Strikethrough()

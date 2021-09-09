@@ -166,7 +166,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void option1() {
         mToolbar = this.findViewById(R.id.areToolbar);
-        IARE_ToolItem bold = new ARE_ToolItem_Bold();
+        IARE_ToolItem bold = new ARE_ToolItem_Bold(R.drawable.bold, R.drawable.bold);
         IARE_ToolItem italic = new ARE_ToolItem_Italic();
         IARE_ToolItem underline = new ARE_ToolItem_Underline();
         IARE_ToolItem strikethrough = new ARE_ToolItem_Strikethrough();

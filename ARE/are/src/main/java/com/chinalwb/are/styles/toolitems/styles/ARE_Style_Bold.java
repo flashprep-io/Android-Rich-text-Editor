@@ -16,6 +16,8 @@ import com.chinalwb.are.styles.toolitems.IARE_ToolItem_Updater;
 import java.nio.charset.CharsetEncoder;
 
 public class ARE_Style_Bold extends ARE_ABS_Style<AreBoldSpan> {
+    private int activeImage = -1;
+    private int inActiveImage = -1;
 
     private ImageView mBoldImageView;
 
@@ -28,11 +30,13 @@ public class ARE_Style_Bold extends ARE_ABS_Style<AreBoldSpan> {
     /**
      * @param boldImage
      */
-    public ARE_Style_Bold(AREditText editText, ImageView boldImage, IARE_ToolItem_Updater checkUpdater) {
+    public ARE_Style_Bold(AREditText editText, ImageView boldImage, IARE_ToolItem_Updater checkUpdater, int activeImage, int inActiveImage) {
         super(editText.getContext());
         this.mEditText = editText;
         this.mBoldImageView = boldImage;
         this.mCheckUpdater = checkUpdater;
+        this.activeImage = activeImage;
+        this.inActiveImage = inActiveImage;
         setListenerForImageView(this.mBoldImageView);
     }
 
@@ -58,9 +62,9 @@ public class ARE_Style_Bold extends ARE_ABS_Style<AreBoldSpan> {
                     mCheckUpdater.onCheckStatusUpdate(mBoldChecked);
                 }
                 if(mBoldChecked){
-                    imageView.setImageResource(R.drawable.toolbar_checked_bg);
+                    imageView.setImageResource(activeImage);
                 }else{
-                    imageView.setImageResource(R.drawable.bold);
+                    imageView.setImageResource(inActiveImage);
                 }
                 if (null != mEditText) {
                     applyStyle(mEditText.getEditableText(),
