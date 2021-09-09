@@ -98,7 +98,7 @@ public class ARE_DefaultToolbarActivity extends AppCompatActivity {
         IARE_ToolItem hr = new ARE_ToolItem_Hr();
         IARE_ToolItem link = new ARE_ToolItem_Link();
         IARE_ToolItem subscript = new ARE_ToolItem_Subscript();
-        IARE_ToolItem superscript = new ARE_ToolItem_Superscript();
+        IARE_ToolItem superscript = new ARE_ToolItem_Superscript(R.drawable.superscript, R.drawable.superscript);
         IARE_ToolItem left = new ARE_ToolItem_AlignmentLeft();
         IARE_ToolItem center = new ARE_ToolItem_AlignmentCenter();
         IARE_ToolItem right = new ARE_ToolItem_AlignmentRight();

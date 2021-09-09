@@ -23,6 +23,13 @@ import com.chinalwb.are.styles.toolitems.styles.ARE_Style_Superscript;
 
 public class ARE_ToolItem_Superscript extends ARE_ToolItem_Abstract {
     private ImageView view = null;
+    private int activeImage = -1;
+    private int inActiveImage = -1;
+
+    public ARE_ToolItem_Superscript(int activeImage, int inActiveImage) {
+        this.activeImage = activeImage;
+        this.inActiveImage = inActiveImage;
+    }
 
     @Override
     public IARE_ToolItem_Updater getToolItemUpdater() {
@@ -38,7 +45,7 @@ public class ARE_ToolItem_Superscript extends ARE_ToolItem_Abstract {
         if (mStyle == null) {
             AREditText editText = this.getEditText();
             IARE_ToolItem_Updater toolItemUpdater = getToolItemUpdater();
-            mStyle = new ARE_Style_Superscript(editText, (ImageView) mToolItemView, toolItemUpdater);
+            mStyle = new ARE_Style_Superscript(editText, (ImageView) mToolItemView, toolItemUpdater, activeImage, inActiveImage);
         }
         return mStyle;
     }
@@ -50,11 +57,14 @@ public class ARE_ToolItem_Superscript extends ARE_ToolItem_Abstract {
         }
         if (mToolItemView == null) {
             ImageView imageView = new ImageView(context);
-            int size = Util.getPixelByDp(context, 30);
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(size, size);
+            int height = Util.getPixelByDp(context, 40);
+            int width = Util.getPixelByDp(context, 57);
+            int padding = Util.getPixelByDp(context, 10);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(width, height);
             imageView.setLayoutParams(params);
-            imageView.setImageResource(R.drawable.superscript);
+            imageView.setImageResource(inActiveImage);
             imageView.bringToFront();
+            imageView.setPadding(padding, padding, padding, padding);
             mToolItemView = imageView;
             view  = imageView;
         }
@@ -88,9 +98,9 @@ public class ARE_ToolItem_Superscript extends ARE_ToolItem_Abstract {
         }
 
         if(superscriptExists){
-            view.setImageResource(R.drawable.toolbar_checked_bg);
+            view.setImageResource(activeImage);
         }else{
-            view.setImageResource(R.drawable.superscript);
+            view.setImageResource(inActiveImage);
         }
 
         mToolItemUpdater.onCheckStatusUpdate(superscriptExists);
