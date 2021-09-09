@@ -87,7 +87,7 @@ public class ARE_DefaultToolbarActivity extends AppCompatActivity {
         IARE_ToolItem bold = new ARE_ToolItem_MyBold(R.drawable.bold, R.drawable.my_bold);
         IARE_ToolItem youtube = new ARE_ToolItem_Youtube();
         IARE_ToolItem italic = new ARE_ToolItem_Italic(R.drawable.italic, R.drawable.italic);
-        IARE_ToolItem underline = new ARE_ToolItem_Underline();
+        IARE_ToolItem underline = new ARE_ToolItem_Underline(R.drawable.underline, R.drawable.underline);
         IARE_ToolItem strikethrough = new ARE_ToolItem_Strikethrough();
         IARE_ToolItem fontSize = new ARE_ToolItem_FontSize();
         IARE_ToolItem fontColor = new ARE_ToolItem_FontColor();

@@ -13,6 +13,8 @@ import com.chinalwb.are.styles.ARE_ABS_Style;
 import com.chinalwb.are.styles.toolitems.IARE_ToolItem_Updater;
 
 public class ARE_Style_Underline extends ARE_ABS_Style<AreUnderlineSpan> {
+	private int activeImage = -1;
+	private int inActiveImage = -1;
 
 	private ImageView mUnderlineImageView;
 
@@ -26,11 +28,13 @@ public class ARE_Style_Underline extends ARE_ABS_Style<AreUnderlineSpan> {
 	 *
 	 * @param italicImage
 	 */
-	public ARE_Style_Underline(AREditText editText, ImageView italicImage, IARE_ToolItem_Updater checkUpdater) {
+	public ARE_Style_Underline(AREditText editText, ImageView italicImage, IARE_ToolItem_Updater checkUpdater, int activeImage, int inActiveImage) {
 	    super(editText.getContext());
 		this.mEditText = editText;
 		this.mUnderlineImageView = italicImage;
 		this.mCheckUpdater = checkUpdater;
+		this.activeImage = activeImage;
+		this.inActiveImage = inActiveImage;
 		setListenerForImageView(this.mUnderlineImageView);
 	}
 
@@ -57,9 +61,9 @@ public class ARE_Style_Underline extends ARE_ABS_Style<AreUnderlineSpan> {
 					mCheckUpdater.onCheckStatusUpdate(mUnderlineChecked);
 				}
 				if(mUnderlineChecked){
-					imageView.setImageResource(R.drawable.toolbar_checked_bg);
+					imageView.setImageResource(activeImage);
 				}else{
-					imageView.setImageResource(R.drawable.underline);
+					imageView.setImageResource(inActiveImage);
 				}
 				if (null != mEditText) {
 					applyStyle(mEditText.getEditableText(), mEditText.getSelectionStart(), mEditText.getSelectionEnd());
