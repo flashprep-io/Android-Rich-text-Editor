@@ -58,7 +58,7 @@ class CustomClass: AppCompatActivity() {
         val underlineOption = ARE_ToolItem_Underline(R.drawable.underline_active, R.drawable.underline_inactive)
         val strikethrough = ARE_ToolItem_Strikethrough()
         val superScriptOption = ARE_ToolItem_Superscript(R.drawable.super_script_active, R.drawable.super_script_in_active)
-        val subScriptOption = ARE_ToolItem_Subscript()
+        val subScriptOption = ARE_ToolItem_Subscript(R.drawable.sub_script_active, R.drawable.sub_script_in_active)
         val imageOption = ARE_ToolItem_Image()
 
         toolbar.addToolbarItem(boldOption)
@@ -76,7 +76,7 @@ class CustomClass: AppCompatActivity() {
         val underlineOption = ARE_ToolItem_Underline(R.drawable.underline_active, R.drawable.underline_inactive)
         val strikethrough = ARE_ToolItem_Strikethrough()
         val superScriptOption = ARE_ToolItem_Superscript(R.drawable.super_script_active, R.drawable.super_script_in_active)
-        val subScriptOption = ARE_ToolItem_Subscript()
+        val subScriptOption = ARE_ToolItem_Subscript(R.drawable.sub_script_active, R.drawable.sub_script_in_active)
         val imageOption = ARE_ToolItem_Image()
 
         toolbar2.addToolbarItem(boldOption)
